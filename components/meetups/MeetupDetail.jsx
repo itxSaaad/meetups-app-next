@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { IoIosArrowBack } from "react-icons/io";
 
 import classes from "./MeetupDetail.module.css";
 
@@ -6,7 +7,10 @@ function MeetupDetail(props) {
   return (
     <>
       <div className={classes.action}>
-        <Link href="/">Go Back</Link>
+        <Link href="/">
+          <IoIosArrowBack />
+          Go Back
+        </Link>
       </div>
 
       <section className={classes.detail}>

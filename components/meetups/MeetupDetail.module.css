@@ -16,6 +16,10 @@
 
 .action a {
   font: inherit;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   color: #77002e;
   border: 1px solid #77002e;

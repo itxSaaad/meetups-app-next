@@ -1,5 +1,6 @@
-import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
+import Head from "next/head";
+import { useRouter } from "next/router";
 
 import Loading from "../../components/ui/Loading";
 const NewMeetupForm = dynamic(
@@ -25,7 +26,18 @@ function NewMeetupPage() {
     router.push("/");
   }
 
-  return <NewMeetupForm onAddMeetup={addMeetupHandler} />;
+  return (
+    <>
+      <Head>
+        <title>Add New Meetup! | React Meetups</title>
+        <meta
+          name="description"
+          content="Add your own meetups and create amazing networking opportunities."
+        />
+      </Head>
+      <NewMeetupForm onAddMeetup={addMeetupHandler} />
+    </>
+  );
 }
 
 export default NewMeetupPage;

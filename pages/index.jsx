@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import Head from "next/head";
 import { connectDb } from "../helpers/db";
 
 import Loading from "../components/ui/Loading";
@@ -7,7 +8,18 @@ const MeetupList = dynamic(() => import("../components/meetups/MeetupList"), {
 });
 
 function HomePage(props) {
-  return <MeetupList meetups={props.meetups} />;
+  return (
+    <>
+      <Head>
+        <title>React Meetups | Find your next meetup!</title>
+        <meta
+          name="description"
+          content="Browse a huge list of highly active React meetups!"
+        />
+      </Head>
+      <MeetupList meetups={props.meetups} />
+    </>
+  );
 }
 
 export async function getStaticProps() {
@@ -28,7 +40,7 @@ export async function getStaticProps() {
         address: meetup.address,
       })),
     },
-    revalidate: 10,
+    revalidate: 1,
   };
 }
 
