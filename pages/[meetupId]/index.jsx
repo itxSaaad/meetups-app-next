@@ -1,4 +1,12 @@
-import MeetupDetail from "../../components/meetups/MeetupDetail";
+import dynamic from "next/dynamic";
+
+import Loading from "../../components/ui/Loading";
+const MeetupDetail = dynamic(
+  () => import("../../components/meetups/MeetupDetail"),
+  {
+    loading: () => <Loading />,
+  }
+);
 
 function MeetupDetailPage(props) {
   return (

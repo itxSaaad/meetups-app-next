@@ -1,4 +1,9 @@
-import MeetupList from "../components/meetups/MeetupList";
+import dynamic from "next/dynamic";
+
+import Loading from "../components/ui/Loading";
+const MeetupList = dynamic(() => import("../components/meetups/MeetupList"), {
+  loading: () => <Loading />,
+});
 
 const DUMMY_MEETUPS = [
   {
